@@ -1,352 +1,561 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <!-- Basic -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- Mobile Metas -->
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <!-- Site Metas -->
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arnaldo Xavier Informática | Soluções IT, Renting & Marketing</title>
+    <style>
+        :root {
+            --primary-color: #0056b3; 
+            --accent-color: #e06d06; 
+            --bg-color: #ffffff;
+            --secondary-bg: #f8f9fa;
+            
+            /* Cores da secção escura */
+            --dark-bg: #2b2f33;
+            --dark-blue: #4a90e2; 
+            --dark-text-main: #ffffff;
+            --dark-text-muted: #a0aab2;
+            --dark-text-list: #d1d5db;
+        }
 
-    <title>Arnaldo Xavier Informática Unip.</title>
+        html {
+            scroll-behavior: smooth;
+        }
 
-    <!-- slider stylesheet -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css"
-    />
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+        }
 
-    <!-- bootstrap core css -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+        /* Container global */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    <!-- fonts style -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Poppins|Raleway:400,600|Righteous&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet" />
-    <!-- responsive style -->
-    <link href="css/responsive.css" rel="stylesheet" />
-  </head>
+        /* --- Navbar Flutuante Estilo "Cápsula" --- */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.98); /* Fundo branco ligeiramente translúcido */
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* Sombra para destacar do fundo */
+            position: fixed;
+            top: 25px; /* Margem do topo para flutuar */
+            left: 50%; /* Centrar no ecrã... */
+            transform: translateX(-50%); /* ...ajuste fino do centro */
+            width: 95%; /* Largura para não tocar nas bordas em ecrãs menores */
+            max-width: 1100px; /* Largura máxima idêntica ao site de inspiração */
+            border-radius: 50px; /* Barra redonda (cápsula) */
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
 
-  <body>
-    <div class="hero_area">
-      <!-- header section strats -->
-      <header class="header_section">
-        <div class="container-fluid">
-          <nav class="navbar navbar-expand-lg custom_nav-container">
-            <a class="navbar-brand" href="index.html">
-              <span>
-                Arnaldo Xavier Informática Unip.
-              </span>
+        .nav-content {
+            padding: 10px 30px; /* Afastar o conteúdo das bordas redondas */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            font-size: 14pt;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 9pt;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--dark-blue);
+        }
+
+        /* Botão escuro arredondado na navbar */
+        .nav-contact-btn {
+            background-color: #1a1a1a;
+            color: white !important;
+            padding: 12px 25px;
+            border-radius: 30px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-contact-btn:hover {
+            background-color: var(--dark-blue);
+        }
+
+        /* --- Secção Premium Escura --- */
+        .dark-section {
+            background-color: var(--dark-bg);
+            color: var(--dark-text-main);
+            padding: 180px 0 100px 0; /* Padding maior no topo por causa da barra flutuante */
+        }
+
+        .dark-header {
+            margin-bottom: 60px;
+        }
+
+        .dark-promise {
+            color: var(--dark-blue);
+            font-size: 13pt;
+            margin: 0 0 10px 0;
+            font-weight: 400;
+        }
+
+        .dark-title {
+            font-size: 32pt;
+            font-weight: 400;
+            margin: 0;
+            line-height: 1.2;
+            max-width: 800px;
+        }
+
+        .dark-title span {
+            color: var(--dark-blue);
+        }
+
+        .dark-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .dark-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .icon-wrapper {
+            position: relative;
+            width: 80px;
+            height: 60px;
+            margin-bottom: 25px;
+        }
+
+        .icon-bg-blue {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            background-color: var(--dark-blue);
+            border-radius: 15px 5px 25px 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            z-index: 1;
+        }
+
+        .icon-bg-dark {
+            position: absolute;
+            top: 10px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--dark-bg);
+            border: 2px solid #4a5560;
+            border-radius: 5px 20px 5px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            z-index: 2;
+        }
+
+        .dark-card h3 {
+            color: var(--dark-blue);
+            font-size: 16pt;
+            font-weight: 400;
+            margin: 0 0 15px 0;
+        }
+
+        .dark-card > p {
+            color: var(--dark-text-muted);
+            font-size: 11pt;
+            margin: 0 0 20px 0;
+            min-height: 80px; 
+        }
+
+        .dark-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px 0;
+            flex-grow: 1;
+        }
+
+        .dark-card ul li {
+            color: var(--dark-text-list);
+            font-size: 10.5pt;
+            margin-bottom: 10px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .dark-card ul li::before {
+            content: "•";
+            color: var(--dark-text-main);
+            position: absolute;
+            left: 0;
+            font-size: 14pt;
+            line-height: 1;
+            top: -2px;
+        }
+
+        .learn-more {
+            color: var(--dark-blue);
+            text-decoration: none;
+            font-size: 9pt;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .learn-more::after {
+            content: "→";
+            margin-left: 5px;
+            font-size: 12pt;
+            transition: transform 0.3s;
+        }
+
+        .learn-more:hover {
+            color: #ffffff;
+        }
+
+        .learn-more:hover::after {
+            transform: translateX(5px);
+        }
+
+        /* --- Secções de Detalhe --- */
+        .detail-section {
+            padding: 100px 0;
+        }
+
+        .bg-light {
+            background-color: var(--bg-color);
+        }
+
+        .bg-gray {
+            background-color: var(--secondary-bg);
+        }
+
+        .detail-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .reverse-row {
+            direction: rtl;
+        }
+        .reverse-row > * {
+            direction: ltr;
+        }
+
+        .detail-content h2 {
+            font-size: 24pt;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .detail-content h4 {
+            color: var(--accent-color);
+            font-size: 14pt;
+            margin-bottom: 15px;
+        }
+
+        .detail-content p {
+            font-size: 12pt;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .detail-image-placeholder {
+            background: linear-gradient(135deg, #e0e5ec 0%, #ffffff 100%);
+            border-radius: 12px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            font-size: 4rem;
+            color: #b0b8c1;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 60px 20px 30px;
+            border-top: 1px solid #333;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: var(--dark-blue);
+            margin-top: 0;
+            font-size: 18pt;
+        }
+
+        .footer-col p {
+            color: #ccc;
+            font-size: 12pt;
+            margin: 10px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--dark-blue);
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            font-size: 12pt;
+            font-weight: bold;
+            border-radius: 6px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #357abd;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            color: #888;
+            font-size: 11pt;
+        }
+
+        /* --- Responsivo --- */
+        @media (max-width: 1024px) {
+            .dark-grid { grid-template-columns: repeat(2, 1fr); }
+            .dark-title { font-size: 28pt; }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                width: 90%;
+                top: 15px;
+            }
+            .nav-links { display: none; } /* Oculta links no telemóvel para não quebrar a cápsula */
+            .dark-grid { grid-template-columns: 1fr; }
+            .detail-row { grid-template-columns: 1fr; gap: 30px; }
+            .reverse-row { direction: ltr; } 
+            .detail-image-placeholder { height: 250px; }
+            .footer-content { grid-template-columns: 1fr; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menu de Navegação Flutuante -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#" class="logo">
+                <span style="font-size: 24px; color: var(--dark-blue);">⬡</span> Arnaldo Xavier Informática
             </a>
-
-          <!-- Uncomment to show bk-image  <div class="navbar-collapse" id="">
-              <div class="d-none d-lg-flex ml-auto flex-column flex-lg-row align-items-center mt-3">  
-            </div> -->
-
-              
-              
-            </div>
-          </nav>
+            <ul class="nav-links">
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#detalhe-renting">Renting</a></li>
+                <li><a href="#detalhe-dev">Software</a></li>
+                <li><a href="#contactos" class="nav-contact-btn">Contacto</a></li>
+            </ul>
         </div>
-      </header>
-      <!-- end header section -->
-      <!-- slider section -->
-      <section class=" slider_section position-relative">
+    </nav>
+
+    <!-- Secção Principal Escura -->
+    <section id="servicos" class="dark-section">
         <div class="container">
-          <div
-            id="carouselExampleControls"
-            class="carousel slide"
-            data-ride="carousel"
-          >
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="slider_item-box">
-                  <div class="slider_item-container">
-                    <div class="slider_item-detail">
-                      <h1 class="text_services_title">
-                        ADMINISTRAÇÃO DE SISTEMAS
-                      </h1>
-                      <p class="text_services_summary">
-                        Instalação, suporte e manutenção de servidores e outros sistemas.
-                      </p>
-                    </div>
-                    <div class="slider_item-imgbox">
-                      <img src="images/sys_admin_banner.png" alt="" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="carousel-item">
-                <div class="slider_item-box">
-                  <div class="slider_item-container">
-                    <div class="slider_item-detail">
-                      <h1 class="text_services_title">
-                        VENDA E REPARAÇÃO DE EQUIPAMENTOS
-                      </h1>
-                      <p class="text_services_summary">
-                        Computadores, portáteis, tablets, impressoras, monitores, etc.
-                      </p>
-                    </div>
-                    <div class="slider_item-imgbox">
-                      <img src="images/laptop_banner.png" alt="" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="carousel-item">
-                <div class="slider_item-box">
-                  <div class="slider_item-container">
-                    <div class="slider_item-detail">
-                      <h1 class="text_services_title">
-                        RENTING DE IMPRESSORAS MULTIFUNÇÕES
-                      </h1>
-                      <p class="text_services_summary">
-                       A cores ou preto e branco, com cópias incluidas.
-                      </p>
-                    </div>
-                    <div class="slider_item-imgbox">
-                      <img src="images/printer_banner.png" alt="" />
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="dark-header">
+                <p class="dark-promise">A nossa promessa</p>
+                <h1 class="dark-title">Somos o parceiro ideal para<br><span>acelerar o seu negócio</span></h1>
             </div>
-          </div>
+
+            <div class="dark-grid">
+                <!-- Pilar 1 -->
+                <div class="dark-card">
+                    <div class="icon-wrapper">
+                        <div class="icon-bg-blue">🖨️</div>
+                        <div class="icon-bg-dark">⚙️</div>
+                    </div>
+                    <h3>Renting & Equipamentos</h3>
+                    <p>Equipe o seu escritório com impressoras multifunções de última geração sem investimento inicial.</p>
+                    <ul>
+                        <li>Manutenção e assistência</li>
+                        <li>Fornecimento de consumíveis</li>
+                        <li>Pague apenas o que imprime</li>
+                    </ul>
+                    <a href="#detalhe-renting" class="learn-more">Saiba Mais</a>
+                </div>
+
+                <!-- Pilar 2 -->
+                <div class="dark-card">
+                    <div class="icon-wrapper">
+                        <div class="icon-bg-blue">📱</div>
+                        <div class="icon-bg-dark">💻</div>
+                    </div>
+                    <h3>Desenvolvimento</h3>
+                    <p>Mapeamos os processos do seu negócio e desenvolvemos ferramentas digitais para colmatar falhas standard.</p>
+                    <ul>
+                        <li>Software à medida</li>
+                        <li>Apps móveis Android (PDAs)</li>
+                        <li>Sistemas de logística</li>
+                    </ul>
+                    <a href="#detalhe-dev" class="learn-more">Saiba Mais</a>
+                </div>
+
+                <!-- Pilar 3 -->
+                <div class="dark-card">
+                    <div class="icon-wrapper">
+                        <div class="icon-bg-blue">🔄</div>
+                        <div class="icon-bg-dark">🤖</div>
+                    </div>
+                    <h3>Integração & Automação</h3>
+                    <p>Sistemas inteligentes que ligam as suas ferramentas e trabalham por si 24/7, sem subscrições mensais.</p>
+                    <ul>
+                        <li>Webservices (APIs)</li>
+                        <li>Integrações EDI com ERP</li>
+                        <li>Ligação a WhatsApp/Email</li>
+                    </ul>
+                    <a href="#detalhe-auto" class="learn-more">Saiba Mais</a>
+                </div>
+
+                <!-- Pilar 4 -->
+                <div class="dark-card">
+                    <div class="icon-wrapper">
+                        <div class="icon-bg-blue">📈</div>
+                        <div class="icon-bg-dark">🎯</div>
+                    </div>
+                    <h3>Marketing Digital</h3>
+                    <p>Promovemos os seus produtos diretamente às pessoas com interesse no seu negócio.</p>
+                    <ul>
+                        <li>Gestão de Tráfego Pago</li>
+                        <li>Anúncios Google e Redes Sociais</li>
+                        <li>Otimização de orçamento</li>
+                    </ul>
+                    <a href="#detalhe-mkt" class="learn-more">Saiba Mais</a>
+                </div>
+            </div>
         </div>
-        <a
-          class="carousel-control-prev"
-          href="#carouselExampleControls"
-          role="button"
-          data-slide="prev"
-        >
-          <span class="sr-only">Anterior</span>
-        </a>
-        <a
-          class="carousel-control-next"
-          href="#carouselExampleControls"
-          role="button"
-          data-slide="next"
-        >
-          <span class="sr-only">Próximo</span>
-        </a>
-      </section>
-      <!-- end slider section -->
-    </div>
-    <br></br>
-    <!-- who section -->
-    <section class="who_section">
-      <div class="container who_container">
-        <div class="who_img-box">
-          <img src="images/who.png" alt="" />
-        </div>
-        <div class="who_deail-box">
-          <p>
-            SOME TEXT
-          </p>
-        </div>
-      </div>
     </section>
 
-    <!-- end who section -->
-
-    <!-- feature section  -->
-    <section class="feature_section layout_padding">
-      <div class="container">
-        <h2 class="text-uppercase">
-          AS NOSSAS CARACTERÍSTICAS
-        </h2>
-      </div>
-      <div class="">
-        <div class="feature_card-container layout_padding2">
-          <div class="feature_card">
-            <div class="feature_img-container">
-              <div class="feature_img-box">
-                <img src="images/f1.png" alt="" />
-              </div>
+    <!-- DETALHE 1: Renting -->
+    <section id="detalhe-renting" class="detail-section bg-light">
+        <div class="container detail-row">
+            <div class="detail-content">
+                <h4>01. Renting & Equipamentos</h4>
+                <h2>Previsibilidade de Custos e Zero Preocupações</h2>
+                <p>Com o nosso serviço de renting de impressoras multifunções, a sua empresa não precisa de descapitalizar para ter acesso a equipamentos de topo. O investimento inicial é zero.</p>
+                <p><strong>Como funciona:</strong> Pagará apenas um valor reduzido por cada página impressa. Este valor já inclui o envio automático de toners antes que estes terminem, substituição de peças, deslocações e assistência técnica integral. Foca-se no seu negócio, nós focamo-nos em garantir que a sua operação nunca para.</p>
             </div>
-            <div class="feature_detail-box">
-              <h4>
-                INOVAÇÃO
-              </h4>
-              <p>
-                Temos um grande esforço e investimento na Inovação
-                procurando continuamente trazer ao mercado os mais recentes avanços nos produtos e
-                serviços por nós comercializados, procurando assim estar na vanguarda na nossa área de atividade.
-              </p>
-            </div>
-          </div>
-          <div class="feature_card">
-            <div class="feature_img-container">
-              <div class="feature_img-box">
-                <img src="images/f2.png" alt="" />
-              </div>
-            </div>
-            <div class="feature_detail-box">
-              <h4>
-                VALORIZAÇÃO DO CLIENTE
-              </h4>
-              <p>
-                O cliente é o principal foco para a nossa equipa.
-                Ao ajudarmos na valorização do cliente estamos a ajudá-lo a crescer connosco.
-              </p>
-            </div>
-          </div>
-          <div class="feature_card">
-            <div class="feature_img-container">
-              <div class="feature_img-box">
-                <img src="images/f3.png" alt="" />
-              </div>
-            </div>
-            <div class="feature_detail-box">
-              <h4>
-                COMPETÊNCIA
-              </h4>
-              <p>
-                Procuramos o reconhecimento da nossa competência e
-                colocamo-la em prol dos nossos clientes, apoiando-os nas soluções e negócios.
-              </p>
-            </div>
-          </div>
-          <div class="feature_card">
-            <div class="feature_img-container">
-              <div class="feature_img-box">
-                <img src="images/f4.png" alt="" />
-              </div>
-            </div>
-            <div class="feature_detail-box">
-              <h4>
-                SATISFAÇÃO
-              </h4>
-              <p>
-                A nossa prioridade é a satisfação total dos nossos clientes, para tal empenhamos
-                todos os nossos esforços para que consigamos atingir as expetativas depositadas em nós.
-              </p>
-            </div>
-          </div>
+            <div class="detail-image-placeholder">🖨️</div>
         </div>
-      </div>
     </section>
 
-    <!-- end feature section -->
+    <!-- DETALHE 2: Desenvolvimento -->
+    <section id="detalhe-dev" class="detail-section bg-gray">
+        <div class="container detail-row reverse-row">
+            <div class="detail-content">
+                <h4>02. Desenvolvimento de Software</h4>
+                <h2>Aplicações que Falam a Linguagem do Seu Negócio</h2>
+                <p>Nenhum ERP standard faz exatamente tudo o que uma empresa precisa. É aí que entramos. Desenhamos software à medida para cobrir as lacunas dos seus sistemas atuais.</p>
+                <p><strong>Mobilidade Industrial (Android):</strong> Desenvolvemos aplicações preparadas para terminais PDA industriais. Digitalize por completo o seu armazém: desde a receção de mercadorias, inventário por código de barras, até equipas de autovenda no terreno, tudo sincronizado com a base de dados central da sua empresa.</p>
+            </div>
+            <div class="detail-image-placeholder">💻</div>
+        </div>
+    </section>
 
-    <!-- contact section -->
-    <section class="contact_section ">
-      <div class="container d-flex justify-content-center">
+    <!-- DETALHE 3: Integração & Automação -->
+    <section id="detalhe-auto" class="detail-section bg-light">
+        <div class="container detail-row">
+            <div class="detail-content">
+                <h4>03. Integração & Automação</h4>
+                <h2>O Seu Negócio em "Piloto Automático"</h2>
+                <p>Eliminamos tarefas manuais repetitivas desenvolvendo fluxos que trabalham 24/7. Desenvolvemos Webservices (APIs) que permitem à sua app móvel ou site injetar encomendas diretamente no seu ERP.</p>
+                <p><strong>EDI e Fluxos Inteligentes:</strong> Automatizamos a troca de faturas e guias B2B com os seus parceiros através de sistemas EDI. Além disso, integramos o seu site com o WhatsApp, Email ou CRM. O melhor de tudo? Você paga o desenvolvimento do fluxo e a solução é sua, <strong>livre de subscrições mensais</strong>.</p>
+            </div>
+            <div class="detail-image-placeholder">🤖</div>
+        </div>
+    </section>
+
+    <!-- DETALHE 4: Marketing Digital -->
+    <section id="detalhe-mkt" class="detail-section bg-gray">
+        <div class="container detail-row reverse-row">
+            <div class="detail-content">
+                <h4>04. Marketing Digital</h4>
+                <h2>Tráfego Pago: Alcance o Público Certo</h2>
+                <p>Ter um bom produto ou serviço não é suficiente se as pessoas certas não o virem. Criamos e gerimos campanhas focadas inteiramente no retorno sobre o investimento (ROI).</p>
+                <p><strong>Gestão Estratégica:</strong> Segmentamos os seus anúncios no Google, Instagram e Facebook para impactar utilizadores que já procuram ativamente pelo que tem para oferecer. Monitorizamos os resultados diariamente para otimizar o seu orçamento de marketing, garantindo o menor custo por contacto possível.</p>
+            </div>
+            <div class="detail-image-placeholder">📈</div>
+        </div>
+    </section>
+
+    <!-- Rodapé e Contactos -->
+    <footer id="contactos" class="footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>Pronto para otimizar a sua empresa?</h3>
+                <p>Agende uma reunião connosco e descubra o que a nossa equipa pode fazer pela sua infraestrutura tecnológica.</p>
+                <br>
+                <a href="mailto:geral@ax-informatica.pt" class="cta-button">Pedir Orçamento</a>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Contactos</h3>
+                <p><strong>Morada:</strong> Rua Frei José Vilaça, nº309 2ºEsq. 4705-265 Braga</p>
+                <p><strong>Email:</strong> geral@ax-informatica.pt</p>
+                <p><strong>Gerência:</strong> +351 965 541 987</p>
+                <p><strong>Suporte:</strong> +351 964 363 334</p>
+            </div>
+        </div>
         
-      </div>
-      <div class="container-fluid layout_padding-top">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="col-md-10 offset-md-2">
-              <div class="contact_img-box">
-                <img src="images/form-img.jpg" alt="" />
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 form_bg px-0">
-            <div class="col-md-10 px-0">
-              <form action="">
-                <div class="contact_form-container">
-                  <div>
-                    <div>                      
-                    <div class="mt-3 d-flex justify-content-end">
-                      <button onclick="location.href='mailto:ivofernandes12@gmail.com'">
-                        CONTACTE-NOS
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Arnaldo Xavier Informática Unip. Todos os direitos reservados.</p>
         </div>
-      </div>
-    </section>
-    <!-- end contact section -->
+    </footer>
 
-    <!-- info section -->
-    <section class="info_section layout_padding">
-      <div class="container info_content">
-        <div>
-          <div class="row">
-
-            <div class="col-md-4">
-              <div class="d-flex">
-                <h5>
-                  Contactos
-                </h5>
-              </div>
-              <div class="d-flex ">
-                <ul>
-                  <li>
-                    <p class="text_info_section">
-                      Morada: Rua Frei José Vilaça, nº309 2ºEsq. 4705-265 Braga
-                    </p>
-                  </li>
-                  <li>
-                    <p class="text_info_section">
-                      geral@ax-informatica.pt
-                    </p>
-                  </li>
-                  <li>
-                    <p class="text_info_section">
-                      Gerente: +351 965 541 987
-                    </p>
-                  </li>
-                  <li>
-                    <p class="text_info_section">
-                      Técnico: +351 964 363 334
-                    </p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-        <div
-          class="d-flex flex-column flex-lg-row justify-content-between align-items-center align-items-lg-baseline"
-        >
-        
-        </div>
-      </div>
-    </section>
-
-    <!-- end info section -->
-
-    <!-- footer section -->
-    <section class="container-fluid footer_section">
-      <p>
-        Design by
-        <a href="https://html.design/">Free Html Templates</a>
-      </p>
-      <p>
-        2022 Modified by 
-        <a href="https://github.com/ivoxavier">Ivo Xavier</a>
-      </p>
-    </section>
-    <!-- footer section -->
-
-    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-
-    <script>
-      function openNav() {
-        document.getElementById("myNav").classList.toggle("menu_width");
-        document
-          .querySelector(".custom_menu-btn")
-          .classList.toggle("menu_btn-style");
-      }
-    </script>
-  </body>
+</body>
 </html>
